@@ -51,15 +51,3 @@ cd Gunify
 1. Download the **AR target images** from the repository’s *images* folder.
 2. Load the page in your browser. 
 3. Point your device's camera at the image, and watch the 3D model appear. 
-
----
-
-## 🤝 Contributing 
-
-Want to contribute? Here's how:
-
-1. 🍴 Fork the repository.
-2. 🌿 Create a new branch (`git checkout -b feature-name`).
-3. ✍️ Make your changes and commit them (`git commit -am 'Add feature-name'`).
-4. 🚀 Push to your branch (`git push origin feature-name`).
-5. 🔄 Submit a pull request to merge into the main branch.
