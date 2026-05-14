@@ -1,6 +1,6 @@
 # 🔫 **Gunify**
 
-Gunify is a **marker-based WebAR** that detects gun markers and instantly displays a **3D gun model**, along with key **weapon details** — all directly in your browser.
+**Gunify** is a marker-based WebAR experience that recognizes gun markers and instantly renders interactive 3D weapon models with detailed firearm information directly in the browser.
 
 ![Gunify](https://github.com/KrishBharadwaj5678/Gunify/raw/main/GunifyDemo.jpg)
 
@@ -48,7 +48,7 @@ cd Gunify
 
 ## 💡 Usage
 
-1. Download the **trackable images** from the *images* directory in this GitHub repo. 
+1. Download the **AR target images** from the repository’s *images* folder.
 2. Load the page in your browser. 
 3. Point your device's camera at the image, and watch the 3D model appear. 
 
@@ -63,4 +63,3 @@ Want to contribute? Here's how:
 3. ✍️ Make your changes and commit them (`git commit -am 'Add feature-name'`).
 4. 🚀 Push to your branch (`git push origin feature-name`).
 5. 🔄 Submit a pull request to merge into the main branch.
-
