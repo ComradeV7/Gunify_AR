@@ -1,214 +1,127 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="title" content="Gunify — AR Gun Detection" />
-    <meta
-      name="description"
-      content="Gunify is an interactive AR experience that detects gun markers and displays real-time details, sounds, and specifications."
-    />
-    <meta name="author" content="Krish Bharadwaj" />
-    <meta
-      name="keywords"
-      content="Gunify, AR gun detection, AR weapon detection, augmented reality gun app, WebAR guns, marker based AR, JavaScript AR project, firearm info app, gun sounds, gun specifications, AR weapons, 3D gun models, AR.js, A-Frame marker tracking"
-    />
-    <meta name="robots" content="index, follow" />
-    <title>Experience Firearms in Real-Time</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="./favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./favicon/apple-touch-icon.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="Gunify" />
-    <link rel="manifest" href="./favicon/site.webmanifest" />
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
-  <body style="margin: 0px; overflow: hidden">
-    <div class="arjs-loader">
-      <div class="spinner"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="title" content="Gunify — AR Gun Detection" />
+  <meta name="description"
+    content="Gunify is an interactive AR experience that detects gun markers and displays real-time details, sounds, and specifications." />
+  <meta name="author" content="Krish Bharadwaj" />
+  <meta name="keywords"
+    content="Gunify, AR gun detection, AR weapon detection, augmented reality gun app, WebAR guns, marker based AR, JavaScript AR project, firearm info app, gun sounds, gun specifications, AR weapons, 3D gun models, AR.js, A-Frame marker tracking" />
+  <meta name="robots" content="index, follow" />
+  <title>Experience Firearms in Real-Time</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="./favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Gunify" />
+  <link rel="manifest" href="./favicon/site.webmanifest" />
+  <script
+    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body style="margin: 0px; overflow: hidden">
+  <div class="arjs-loader">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="watermark">Gunify</div>
+
+  <!-- Info Icon -->
+  <div class="icon-btn info-icon">
+    <i class="fa-solid fa-info"></i>
+  </div>
+
+  <!-- Shoot Icon -->
+  <div class="icon-btn shoot-icon">
+    <i class="fa-solid fa-gun"></i>
+  </div>
+
+  <!-- Reload Icon -->
+  <div class="icon-btn reload-icon">
+    <i class="fa-solid fa-rotate-right"></i>
+  </div>
+
+  <!-- Information Panel -->
+  <div class="info-panel" id="infoPanel">
+    <div class="info-header">
+      <h2 id="gunTitle">Gun Title</h2>
+    </div>
+    <p id="gunDescription"></p>
+    <div class="specs">
+      <div class="spec" id="spec1"></div>
+      <div class="spec" id="spec2"></div>
+      <div class="spec" id="spec3"></div>
     </div>
 
-    <div class="watermark">Gunify</div>
-
-    <!-- Info Icon -->
-    <div class="icon-btn info-icon">
-      <i class="fa-solid fa-info"></i>
-    </div>
-
-    <!-- Shoot Icon -->
-    <div class="icon-btn shoot-icon">
-      <i class="fa-solid fa-gun"></i>
-    </div>
-
-    <!-- Reload Icon -->
-    <div class="icon-btn reload-icon">
-      <i class="fa-solid fa-rotate-right"></i>
-    </div>
-
-    <!-- Information Panel -->
-    <div class="info-panel" id="infoPanel">
-      <div class="info-header">
-        <h2 id="gunTitle">Gun Title</h2>
-      </div>
-      <p id="gunDescription"></p>
-      <div class="specs">
-        <div class="spec" id="spec1"></div>
-        <div class="spec" id="spec2"></div>
-        <div class="spec" id="spec3"></div>
-      </div>
-
-      <!-- Close -->
-      <div class="go-corner">
-        <div class="go-close close-wrapper">
-          <i class="fa-solid fa-xmark close-icon" id="closeInfo"></i>
-        </div>
+    <!-- Close -->
+    <div class="go-corner">
+      <div class="go-close close-wrapper">
+        <i class="fa-solid fa-xmark close-icon" id="closeInfo"></i>
       </div>
     </div>
+  </div>
 
-    <!-- a-frame scene -->
-    <a-scene
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    >
-      <!-- KRISS Vector -->
-      <a-nft
-        type="nft"
-        id="krsvMarker"
-        url="./markers/KRSV/KRSV"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/KRSV/scene.gltf"
-          scale="90 90 90"
-          position="65 -20 -165"
-          rotation="0 90 0"
-        ></a-entity>
-      </a-nft>
+  <!-- a-frame scene -->
+  <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <!-- KRISS Vector -->
+    <a-nft type="nft" id="krsvMarker" url="./markers/KRSV/KRSV" smooth="true" smoothCount="10" smoothTolerance=".01"
+      smoothThreshold="5">
+      <a-entity gltf-model="./models/KRSV/scene.gltf" scale="90 90 90" position="65 -20 -165"
+        rotation="0 90 0"></a-entity>
+    </a-nft>
 
-      <!-- AK47 -->
-      <a-nft
-        type="nft"
-        id="ak47Marker"
-        url="./markers/AK47/AK47"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/AK47/scene.gltf"
-          scale="0.7 0.7 0.7"
-          position="75 0 -100"
-          rotation="0 0 0"
-        ></a-entity>
-      </a-nft>
+    <!-- AK47 -->
+    <a-nft type="nft" id="ak47Marker" url="./markers/AK47/AK47" smooth="true" smoothCount="10" smoothTolerance=".01"
+      smoothThreshold="5">
+      <a-entity gltf-model="./models/AK47/scene.gltf" scale="0.7 0.7 0.7" position="75 0 -100"
+        rotation="0 0 0"></a-entity>
+    </a-nft>
 
-      <!-- Smith & Wesson Revolver M625 -->
-      <a-nft
-        type="nft"
-        id="smithMarker"
-        url="./markers/Smith/Smith"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/Smith/scene.gltf"
-          scale="81 81 81"
-          position="55 0 -150"
-          rotation="0 180 0"
-        ></a-entity>
-      </a-nft>
+    <!-- Smith & Wesson Revolver M625 -->
+    <a-nft type="nft" id="smithMarker" url="./markers/Smith/Smith" smooth="true" smoothCount="10" smoothTolerance=".01"
+      smoothThreshold="5">
+      <a-entity gltf-model="./models/Smith/scene.gltf" scale="81 81 81" position="55 0 -150"
+        rotation="0 180 0"></a-entity>
+    </a-nft>
 
-      <!-- Mosin Nagant  -->
-      <a-nft
-        type="nft"
-        id="mosinMarker"
-        url="./markers/Mosin/Mosin"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/Mosin/scene.gltf"
-          scale="250 250 280"
-          position="95 0 -90"
-          rotation="0 -90 0"
-        ></a-entity>
-      </a-nft>
+    <!-- Mosin Nagant  -->
+    <a-nft type="nft" id="mosinMarker" url="./markers/Mosin/Mosin" smooth="true" smoothCount="10" smoothTolerance=".01"
+      smoothThreshold="5">
+      <a-entity gltf-model="./models/Mosin/scene.gltf" scale="250 250 280" position="95 0 -90"
+        rotation="0 -90 0"></a-entity>
+    </a-nft>
 
-      <!-- Uzi -->
-      <a-nft
-        type="nft"
-        id="uziMarker"
-        url="./markers/Uzi/Uzi"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/Uzi/scene.gltf"
-          scale="80 80 80"
-          position="40 40 -150"
-          rotation="0 -90 0"
-        ></a-entity>
-      </a-nft>
+    <!-- Uzi -->
+    <a-nft type="nft" id="uziMarker" url="./markers/Uzi/Uzi" smooth="true" smoothCount="10" smoothTolerance=".01"
+      smoothThreshold="5">
+      <a-entity gltf-model="./models/Uzi/scene.gltf" scale="80 80 80" position="40 40 -150"
+        rotation="0 -90 0"></a-entity>
+    </a-nft>
 
-      <!-- Sig Sauer -->
-      <a-nft
-        type="nft"
-        id="sigsauerMarker"
-        url="./markers/SigSauer/SigSauer"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <a-entity
-          gltf-model="./models/SigSauer/scene.gltf"
-          scale="7 7 7"
-          position="70 0 -80"
-          rotation="0 -90 0"
-        ></a-entity>
-      </a-nft>
+    <!-- Sig Sauer -->
+    <a-nft type="nft" id="sigsauerMarker" url="./markers/SigSauer/SigSauer" smooth="true" smoothCount="10"
+      smoothTolerance=".01" smoothThreshold="5">
+      <a-entity gltf-model="./models/SigSauer/scene.gltf" scale="7 7 7" position="70 0 -80"
+        rotation="0 -90 0"></a-entity>
+    </a-nft>
 
-      <!-- Lighting -->
-      <a-entity light="type: ambient; intensity: 2"></a-entity>
-      <a-entity
-        light="type: directional; intensity: 3"
-        position="1 1 1"
-      ></a-entity>
+    <!-- Lighting -->
+    <a-entity light="type: ambient; intensity: 2"></a-entity>
+    <a-entity light="type: directional; intensity: 3" position="1 1 1"></a-entity>
 
-      <!-- Static camera that moves according to the device movements -->
-      <a-entity camera></a-entity>
-    </a-scene>
+    <!-- Static camera that moves according to the device movements -->
+    <a-entity camera></a-entity>
+  </a-scene>
 
-    <script src="./script.js" defer></script>
-  </body>
+  <script type="module" src="./script.js"></script>
+</body>
+
 </html>
